@@ -1,0 +1,61 @@
+$break-sm: 576px;
+$break-md: 768px;
+$break-lg: 992px;
+$break-xl: 1200px;
+
+@media (max-width: $break-lg) {
+  .custom-section {
+    margin-block: 30px;
+  }
+
+  .Login-img-title {
+    display: block;
+  }
+
+  .custom-container {
+    padding: 16px !important;
+  }
+
+  .Login-img {
+    display: block;
+    margin: auto;
+  }
+
+  .login-box-wrapper {
+    width: 100%;
+  }
+
+  .auth-wrapper {
+    padding: 0px;
+  }
+
+  .login-box {
+    padding: 20px;
+  }
+
+  .or-sign-wrapper {
+    margin-top: 16px;
+  }
+
+  .google-button {
+    margin-top: 16px;
+  }
+
+  .redirect-link {
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: $break-md) {
+  .Login-img {
+    width: 100%;
+  }
+
+  .Login-img-title {
+    width: 100%;
+
+    display: block;
+  }
+}
+
+@media (max-width: $break-sm) {}

@@ -1,0 +1,13 @@
+@import "./variable";
+@import "./auth";
+@import "./dashboard";
+@import "./responsive";
+
+body {
+  background-color: var(--app-bg-light);
+  font-family: "Poppins", sans-serif;
+}
+
+p > span {
+  font-family: "Inter", sans-serif;
+}

@@ -1,0 +1,240 @@
+.Login-img-title {
+  width: 441px;
+  margin-bottom: 88px;
+}
+
+.Login-img {
+  width: 385px;
+}
+
+.login-box {
+  background: #e7e7e733;
+  border: 1px solid #0000001f;
+  border-radius: 20px;
+  padding: 50px;
+  max-width: 504px;
+  width: 100%;
+}
+
+.main-wrapper {
+  min-height: calc(100vh - 94px);
+}
+
+.auth-wrapper {
+  .form-check-input {
+    width: 20px;
+    height: 20px;
+    box-shadow: none;
+    margin-right: 12px;
+    --bs-form-check-bg: none;
+
+    &:checked {
+      border: none !important;
+      //background: var(--auth-checkbox);
+    }
+  }
+}
+
+.login-box-wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+}
+
+.auth-title {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 125%;
+  letter-spacing: 0.2px;
+  color: var(--auth-title);
+}
+
+.auth-title-2 {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--auth-title-2);
+  margin-bottom: 41px;
+}
+
+.input-wrapper {
+  border-radius: 12px;
+  border: 1px solid #e2e8f0;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+
+  .form-control {
+    background: none;
+    border: none;
+    outline: none;
+    font-weight: 400 !important;
+    font-size: 16px !important;
+    line-height: 160% !important;
+    letter-spacing: 0px;
+    color: var(--form-input) !important;
+
+    &:focus {
+      outline: none !important;
+      box-shadow: none !important;
+      border-color: inherit !important;
+      background-color: none !important;
+    }
+  }
+
+  .form-control::placeholder {
+    color: var(--form-input) !important;
+    text-transform: capitalize;
+  }
+}
+
+.btn-custom {
+  font-weight: 700;
+  font-style: bold;
+  font-size: 16px;
+  line-height: 140%;
+  letter-spacing: 0.2px;
+  padding: 17px;
+  border-radius: 999px;
+  background-color: #225bd9;
+  color: #ffffff;
+
+  &:hover {
+    background-color: #225bd9;
+    color: #ffffff;
+  }
+}
+
+.rememberme-text {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0.2px;
+  color: var(--rememberme-text);
+  margin-top: 4px;
+}
+
+.forgot-password {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--forgot-password);
+  text-decoration: none;
+}
+
+.or-sign-wrapper {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  margin-top: 32px;
+
+  .option-text {
+    margin-bottom: 0px;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 160%;
+    letter-spacing: 0px;
+    color: var(--text2);
+    margin: 0px 16px;
+  }
+
+  span {
+    flex-grow: 1;
+    border: 1px solid #e2e8f0;
+  }
+}
+
+.google-button {
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  border-radius: 999px;
+  border: 1px solid #e2e8f0;
+  background-color: #ffffff;
+  padding: 16px;
+  line-height: 150%;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  margin-top: 32px;
+
+  img {
+    margin-right: 12px;
+    margin-top: -4px;
+  }
+}
+
+.redirect-link {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  text-align: center;
+  color: var(--redirect-link);
+  margin-top: 32px;
+
+  a {
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--primary-blue);
+    letter-spacing: 0.2px;
+    margin-left: 5px;
+    font-size: 14px;
+  }
+}
+
+.term-condition {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0px;
+  color: var(--term-condition);
+
+  a {
+    color: #225bd9;
+    text-decoration: none;
+    font-weight: 600;
+  }
+}
+
+.error-text {
+  color: #ff5652;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 160%;
+  letter-spacing: 0px;
+  margin-top: -14px;
+  margin-bottom: 13px;
+}
+
+.border-error {
+  border: 1px solid #ff5652 !important;
+}
+
+.custom-container {
+  padding: 32px !important;
+}
+
+.custom-height {
+  min-height: calc(100vh - 110px);
+}
+
+.theme_toggle {
+  width: 96px;
+  background-color: var(--theme-toggle-bg);
+  padding: 5px 6px;
+
+  .theme_sun_icon {
+    background-color: var(--toggle-switch-sun-icon);
+    padding: 5px 11px;
+    box-shadow: 0px 3px 4px 0px #0000001f;
+  }
+
+  .theme_moon_icon {
+    background-color: var(--toggle-switch-moon-icon);
+    padding: 5px 11px;
+    //   box-shadow: 0px 3px 4px 0px #0000001f;
+  }
+}

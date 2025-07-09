@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login</title>
+  <!-- CSS -->
+  <link rel="stylesheet" href="../styles/css/bootstrap.css" />
+  <link rel="stylesheet" href="../styles/css/index.css" />
+</head>
+
+<body>
+  <!-- Login Section Start -->
+  <div class="auth-wrapper">
+    <div class="container custom-container">
+      <div class=" d-flex justify-content-end align-items-center" style="margin-bottom: 16px;">
+        <div class="d-flex align-items-center justify-content-center theme_toggle" style="gap: 7px" role="button"
+          id="theme-toggle">
+          <div class="theme_sun_icon text-center">
+            <img src="../assets/icons/sunny.svg" alt="sun" width="20px" height="20px" />
+          </div>
+          <div class="theme_moon_icon text-center">
+            <img src="../assets/icons/moon.svg" alt="sun" width="20px" height="20px" />
+          </div>
+        </div>
+      </div>
+      <div class="d-flex justify-content-center custom-height  w-100">
+
+        <div class="col-lg-12">
+          <div class="row h-100">
+            <div class="col-lg-6 d-flex align-items-center justify-content-center custom-section">
+              <div>
+                <img class="Login-img-title img-fluid theme-img" src="../assets/images/Login-1.svg" alt="img"
+                  data-light="../assets/images/Login-1.svg" data-dark="../assets/images/Login-1-d.svg"></img>
+                <img class="Login-img" src="../assets/images/Login.svg" alt="img"></img>
+
+              </div>
+            </div>
+
+            <div class="col-lg-6 custom-section">
+
+              <div class="login-box-wrapper">
+                <div class="login-box">
+
+                  <div>
+                    <h3 class="auth-title text-center">Sign In To Your Account</h3>
+                    <p class="auth-title-2 text-center pb-0">Welcome back! Please enter your details.</p>
+                  </div>
+
+                  <form id="loginForm">
+                    <div>
+                      <div id="loginemail-wrapper" class="input-wrapper d-flex align-items-center">
+                        <img class="theme-img" src="../assets/images/mail.svg" alt="img"
+                          data-light="../assets/images/mail.svg" data-dark="../assets/images/mail-d.svg"></img>
+                        <input id="loginemail" type="email" class="form-control" placeholder="email">
+
+                      </div>
+                      <p id="loginemailError" class="error-text" style="display: none;">Email Require</p>
+
+                      <div id="loginpassword-wrapper" class="input-wrapper d-flex align-items-center">
+                        <img class="theme-img" src="../assets/images/lock.svg" alt="img"
+                          data-light="../assets/images/lock.svg" data-dark="../assets/images/lock-d.svg"></img>
+                        <input id="loginpassword" type="password" class="form-control" placeholder="password">
+                        <img id="logintogglePassword" style="cursor: pointer;" src="../assets/images/eye-off.svg"
+                          alt="img" data-light-show="../assets/images/eye-on.svg"
+                          data-dark-show="../assets/images/eye-on-d.svg" data-light-hide="../assets/images/eye-off.svg"
+                          data-dark-hide="../assets/images/eye-off-d.svg" />
+
+                      </div>
+                      <p class="error-text" id="loginpasswordError" style="display: none;">Password Require </p>
+
+                      <div class="d-flex justify-content-between" style="margin-top: -3px;">
+                        <div class="d-flex align-items-center">
+                          <input type="checkbox" class="form-check-input">
+                          <span class="rememberme-text">Remember me</span>
+                        </div>
+                        <div>
+                          <a href="#" class="forgot-password">Forgot Password?</a>
+                        </div>
+
+                      </div>
+
+                      <div>
+                        <div style="margin-top: 39px;">
+                          <button type="submit" class="btn btn-custom w-100">Sign In</button>
+                        </div>
+                      </div>
+                      <div class='or-sign-wrapper'>
+                        <span></span>
+                        <p class='option-text'>Or sign in with</p>
+                        <span></span>
+                      </div>
+
+                      <div>
+                        <button class='google-button'><img src="../assets/images/google.svg" alt='goole-icon'></img>Google</button>
+                      </div>
+                      <div class="redirect-link text-center">
+                        <span class='redirect-link'>Don’t have an account?<a href='signup.html'>Sign Up</a></span>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- JS -->
+  <script src="../js/bootstrap.js"></script>
+  <script src="../js/index.js"></script>
+  <script>
+    console.log(document.getElementById("loginForm"));
+    document.getElementById("loginForm").addEventListener("submit", (e) => {
+      e.preventDefault(); // Stop form from submitting
+
+      const emails = document.getElementById("loginemail").value.trim();
+      const password = document.getElementById("loginpassword").value.trim();
+
+
+      let error = false;
+
+      if (!emails) {
+        document.getElementById("loginemailError").style.display = "block";
+        document.getElementById("loginemail-wrapper").classList.add("border-error");
+        error = true;
+      } else {
+        document.getElementById("loginemailError").style.display = "none";
+        document.getElementById("loginemail-wrapper").classList.remove("border-error");
+      }
+
+      if (!password) {
+        document.getElementById("loginpasswordError").style.display = "block";
+        document.getElementById("loginpassword-wrapper").classList.add("border-error");
+        error = true;
+      } else {
+        document.getElementById("loginpasswordError").style.display = "none";
+        document.getElementById("loginpassword-wrapper").classList.remove("border-error");
+      }
+
+
+    });
+
+    const lpasswordInput = document.getElementById("loginpassword");
+    const ltogglePasswordIcon = document.getElementById("logintogglePassword");
+
+
+    // current theme
+    function isDarkMode() {
+      return document.body.classList.contains("dark-theme");
+    }
+
+    // Update the password icon based on visibility + theme
+    function updatePasswordToggleIcon() {
+      const isVisible = lpasswordInput.type === "text";
+      const dark = isDarkMode();
+
+      const newIconSrc = isVisible
+        ? (dark ? ltogglePasswordIcon.dataset.darkShow : ltogglePasswordIcon.dataset.lightShow)
+        : (dark ? ltogglePasswordIcon.dataset.darkHide : ltogglePasswordIcon.dataset.lightHide);
+
+      ltogglePasswordIcon.src = newIconSrc;
+    }
+
+    // Toggle visibility on icon click
+    ltogglePasswordIcon.addEventListener("click", () => {
+      lpasswordInput.type = lpasswordInput.type === "text" ? "password" : "text";
+      updatePasswordToggleIcon();
+    });
+
+    // update icon on initial load
+    window.addEventListener("DOMContentLoaded", updatePasswordToggleIcon);
+  </script>
+</body>
+
+</html>

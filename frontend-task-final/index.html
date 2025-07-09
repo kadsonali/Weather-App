@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./styles/css/bootstrap.css" />
+  <link rel="stylesheet" href="./styles/css/index.css" />
+  <link rel="stylesheet" href="./assets/fonts/font.css" />
+</head>
+
+<body>
+  <!-- App Container -->
+  <div class="min-vh-100 app">
+    <!-- ---------------------------- Navbar Start ----------------------------- -->
+
+    <nav class="navigation_bar d-flex align-items-stretch position-sticky top-0 start-0 end-0 w-100 bg-light md:z-1">
+      <!-- Nav header -->
+      <div class="h-100 navbar_header_wrapper">
+        <div class="d-none navbar_header d-md-flex gap-2 align-items-center mb-3">
+          <img src="assets/icons/header_icon.svg" data-light="assets/icons/header_icon.svg"
+            data-dark="assets/icons/header_icon_d.svg" class="theme-img" alt="header" width="27.84px"
+            height="27.84px" />
+          <p class="m-0 fw-bold line-h-125 font-20">Weather R’US</p>
+        </div>
+      </div>
+
+      <!-- Nav Content -->
+      <div class="nav_content flex-grow-1 d-flex align-items-center justify-content-between flex-wrap">
+        <!-- Search bar and hamburger icon -->
+        <div class="d-flex align-items-center gap-4">
+          <img onclick="toggleSidebar()" class="hamburger d-md-none theme-img"
+            src="assets/icons/hamburger_light_mode.svg" width="20px" height="20px"
+            data-light="assets/icons/hamburger_light_mode.svg" data-dark="assets/icons/hamburger_d.svg" alt="menu" />
+
+          <!-- Navbar Input -->
+          <div class="navbar_search_input d-flex align-items-center gap-4">
+            <img src="assets/icons/search_light_mode.svg" alt="Search" />
+            <input class="nav_input flex-grow-1" placeholder="Search..." />
+          </div>
+        </div>
+
+        <!-- Nav Actions -->
+        <div class="nav_actions d-flex gap-4 align-items-stretch my-3 my-sm-0">
+          <!-- Notification -->
+          <div class="notification_icon d-flex align-items-center justify-content-center rounded-circle">
+            <img src="assets/icons/bell_l.svg" data-light="assets/icons/bell_l.svg" data-dark="assets/icons/bell_d.svg"
+              class="theme-img" width="40px" height="40px" alt="notification" />
+          </div>
+
+          <!-- Theme Toggle -->
+          <!-- <div class="theme_toggle d-flex">
+              <div class="sun">
+                <img
+                  src="assets/icons/sunny.svg"
+                  alt="sun"
+                  width="20px"
+                  height="20px"
+                  class="theme_sun_icon"
+                />
+              </div>
+              <div>
+                <img
+                  src="assets/icons/moon.svg"
+                  alt="sun"
+                  width="20px"
+                  height="20px"
+                  class="theme_moon_icon"
+                />
+              </div>
+            </div> -->
+
+          <!-- Light dark mode toggle -->
+          <div class="d-flex align-items-center justify-content-center theme_toggle" style="gap: 7px" role="button"
+            id="theme-toggle">
+            <div class="theme_sun_icon text-center">
+              <img src="assets/icons/sunny.svg" alt="sun" width="20px" height="20px" />
+            </div>
+            <div class="theme_moon_icon text-center">
+              <img src="assets/icons/moon.svg" alt="sun" width="20px" height="20px" />
+            </div>
+          </div>
+        </div>
+        <!-- Nav Actions End -->
+      </div>
+    </nav>
+
+    <!-- ----------------------------- Navbar End ------------------------------ -->
+
+    <!-- ---------------------- Sidebar And Main Content ----------------------- -->
+    <div class="d-grid sidebar_main_content h-100 position-relative">
+      <!-- ---------------------------- Sidebar Start ---------------------------- -->
+      <aside id="sidebar" class="sidebar d-flex flex-column justify-content-between p-3 position-fixed top-0 w-100"
+        style="padding-top: 24px !important">
+        <!-- Sidebar top actions -->
+        <div class="d-flex flex-column gap-2 w-100">
+          <!-- Sidebar header and hamburger for mobile devices -->
+          <div class="d-flex justify-content-between d-md-none">
+            <div class="d-flex gap-2 align-items-center mb-3">
+              <img class="img-fluid theme-img" src="assets/icons/header_icon.svg"
+                data-light="assets/icons/header_icon.svg" data-dark="assets/icons/header_icon_d.svg" alt="header" />
+              <p class="m-0 sidebar_header fw-bold">Weather R’US</p>
+            </div>
+
+            <!-- Hamburger icon -->
+            <div class="text-end">
+              <img onclick="toggleSidebar()" class="hamburger d-md-none theme-img" onClick="{onCollapse}"
+                src="assets/icons/hamburger_light_mode.svg" width="20px" height="20px"
+                data-light="assets/icons/hamburger_light_mode.svg" data-dark="assets/icons/hamburger_d.svg"
+                alt="menu" />
+            </div>
+          </div>
+
+          <!-- Header for mobile devices -->
+
+          <!-- User details -->
+          <div class="d-flex justify-content-between align-items-center user_details">
+            <div class="d-flex align-items-center" style="gap: 12px">
+              <img src="./assets/images/avatar.png" alt="user" />
+              <div>
+                <p class="m-0 font-14 fw-bold">jack Fernandez</p>
+                <p class="m-0 font-14">Lead Manager</p>
+              </div>
+            </div>
+
+            <!-- Dropdown icon -->
+            <img src="./assets/icons/down_icon.svg" alt="icon" width="16px" height="16px" />
+          </div>
+          <!-- User details end -->
+
+          <!-- Routes -->
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/dashboard_icon.svg" data-light="assets/icons/dashboard_icon.svg"
+              data-dark="assets/icons/dashboard_d.svg" class="theme-img" alt="icon" />
+            <a class="active_route text-decoration-none font-poppins">Dashboard</a>
+          </div>
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/forecast.svg" alt="icon" data-light="assets/icons/forecast.svg"
+              data-dark="assets/icons/forecast_d.svg" class="theme-img" />
+            <a class="fw-medium text-decoration-none sidebar-text font-poppins">Forecast</a>
+          </div>
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/analytics.svg" alt="icon" data-light="assets/icons/analytics.svg"
+              data-dark="assets/icons/analytics_d.svg" class="theme-img" />
+            <a class="fw-medium text-decoration-none sidebar-text font-poppins">Historical Data</a>
+          </div>
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/anomaly.svg" alt="icon" data-light="assets/icons/anomaly.svg"
+              data-dark="assets/icons/anomaly_d.svg" class="theme-img" />
+            <a class="fw-medium text-decoration-none sidebar-text font-poppins">Anomaly Tracker</a>
+          </div>
+        </div>
+
+        <!-- Sidebar bottom actions -->
+        <div class="d-flex flex-column gap-2">
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/settings.svg" alt="icon" data-light="assets/icons/settings.svg"
+              data-dark="assets/icons/settings_d.svg" class="theme-img" />
+            <a class="fw-medium text-decoration-none sidebar-text">Settings</a>
+          </div>
+          <div class="d-flex gap-3 sidebar_item">
+            <img src="./assets/icons/logout.svg" alt="icon" data-light="assets/icons/logout.svg"
+              data-dark="assets/icons/logout_d.svg" class="theme-img" />
+            <a class="fw-medium text-decoration-none sidebar-text">Logout</a>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ----------------------------- Sidebar End ----------------------------- -->
+
+      <!-- ------------------------- Main Content Start -------------------------- -->
+      <main class="main_content flex-grow-1 h-100 overflow-auto">
+        <!-- First Row Start (4 cards in left and 1 card in right) -->
+        <div class="db_first_row mb-4">
+          <!-- 4 cards -->
+          <div class="d-flex flex-column w-100" style="gap: 13px">
+            <div class="dashboard_card_secondary">
+              <div class="d-flex flex-column flex-md-row justify-content-between" style="margin-bottom: 20px">
+                <div class="d-flex align-items-center" style="gap: 20px">
+                  <img src="assets/icons/rainfall_l.svg" alt="icon" data-light="assets/icons/rainfall_l.svg"
+                    data-dark="assets/icons/rainfall_d.svg" class="theme-img" />
+                  <p class="font-12 m-0 line-h-100 fw-medium">RAINFALL</p>
+                </div>
+                <p class="font-12 m-0 line-h-100">
+                  1.2mm expected in next hours
+                </p>
+              </div>
+
+              <!-- bottom title -->
+              <p class="m-0 bottom_title line-h-100">
+                <span> 1.88mm <span> In last hour</span> </span>
+              </p>
+            </div>
+            <div class="dashboard_card_secondary">
+              <div class="d-flex flex-column flex-md-row justify-content-between" style="margin-bottom: 20px">
+                <div class="d-flex align-items-center" style="gap: 20px">
+                  <img src="assets/icons/humidity_l.svg" alt="icon" data-light="assets/icons/humidity_l.svg"
+                    data-dark="assets/icons/humidity_d.svg" class="theme-img" />
+                  <p class="font-12 m-0 line-h-100 fw-medium">HUMIDITY</p>
+                </div>
+                <p class="font-12 m-0 line-h-100">Humidity is good</p>
+              </div>
+
+              <!-- bottom title -->
+              <p class="m-0 bottom_title line-h-100"><span>85 %</span></p>
+            </div>
+            <div class="dashboard_card_secondary">
+              <div class="d-flex flex-column flex-md-row justify-content-between" style="margin-bottom: 20px">
+                <div class="d-flex align-items-center" style="gap: 20px">
+                  <img src="assets/icons/uv_index_l.svg" alt="icon" data-light="assets/icons/uv_index_l.svg"
+                    data-dark="assets/icons/uv_index_d.svg" class="theme-img" />
+                  <p class="font-12 m-0 line-h-100 fw-medium">UV INDEX</p>
+                </div>
+                <p class="font-12 m-0 line-h-100 fw-medium">
+                  <input type="range" name="" id="" min="0" max="100" value="40" style="width: fit-content" />
+                </p>
+              </div>
+
+              <!-- bottom title -->
+              <p class="m-0 bottom_title line-h-100">
+                <span>4 Moderate</span>
+              </p>
+            </div>
+            <div class="dashboard_card_secondary">
+              <div class="d-flex flex-column flex-md-row justify-content-between" style="margin-bottom: 20px">
+                <div class="d-flex align-items-center" style="gap: 20px">
+                  <img src="assets/icons/visibility_l.svg" alt="icon" data-light="assets/icons/visibility_l.svg"
+                    data-dark="assets/icons/visibility_d.svg" class="theme-img" />
+                  <p class="font-12 m-0 line-h-100 fw-medium">Visibility</p>
+                </div>
+                <p class="font-12 m-0 line-h-100">
+                  Similar to the actual temperature.
+                </p>
+              </div>
+              <p class="m-0 bottom_title line-h-100"><span>8 km</span></p>
+            </div>
+          </div>
+
+          <!-- Right column -->
+          <div class="weather_details_card d-flex flex-column flex-md-row justify-content-md-between gap-5 gap-md-0">
+            <!-- Inner Left -->
+            <div class="d-flex flex-column" style="gap: 19.5px">
+              <div>
+                <p class="font-poppins fw-medium line-h-100 mb-2" style="font-size: 40px">
+                  Monday
+                </p>
+                <p class="line-h-100 font-14">24 Dec, 2023 | 08:45 AM</p>
+              </div>
+              <div>
+                <p class="font-poppins fw-medium line-h-100 mb-2" style="font-size: 64px">
+                  26°C
+                </p>
+                <p class="line-h-100">High: 26 Low: 9</p>
+              </div>
+              <!-- location -->
+              <div class="bg-white location d-flex align-items-center">
+                <img src="assets/icons/location_light_mode.svg" alt="icon" width="15px" height="20px" />
+                <span class="text-black line-h-100">Johannesburg</span>
+              </div>
+            </div>
+
+            <!-- Inner Right -->
+            <div class="d-flex flex-column align-items-start align-items-md-end">
+              <!-- Unit Toggle -->
+              <div class="toggle_unit d-flex justify-content-end align-items-stretch text-white" style="width: 88px">
+                <div class="bg-dark unit">
+                  <p class="line-h-100">C</p>
+                </div>
+                <div class="feh d-flex align-items-center" style="width: 40%">
+                  <p class="line-h-100">F</p>
+                </div>
+              </div>
+
+              <!-- Sun Image -->
+              <img src="assets/icons/sun_icon.svg" alt="temp" />
+
+              <div>
+                <p class="font-poppins fw-medium line-h-100 mb-2" style="font-size: 22px">
+                  Sunny
+                </p>
+                <p class="font-12 line-h-100">Feels Like 22</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- First Row Ends -->
+
+        <!-- Second Row Starts -->
+        <div class="db_second_row">
+          <div class="w-100 stat_card">
+            <div class="d-flex justify-content-between" style="margin-bottom: 12px">
+              <img src="assets/icons/stat_light_mode.svg" alt="icon" data-light="assets/icons/stat_light_mode.svg"
+                data-dark="assets/icons/stat_dark_mode.svg" class="theme-img" />
+              <img src="assets/icons/redirect_light_mode.svg" alt="icon"
+                data-light="assets/icons/redirect_light_mode.svg" data-dark="assets/icons/redirect_dark_mode.svg"
+                class="theme-img" />
+            </div>
+
+            <p class="bottom_msg line-h-100">Check Full Stats</p>
+          </div>
+          <div class="w-100 stat_card">
+            <div class="d-flex justify-content-between" style="margin-bottom: 12px">
+              <img src="assets/icons/stat_forecast_light_mode.svg" alt="icon"
+                data-light="assets/icons/stat_forecast_light_mode.svg"
+                data-dark="assets/icons/stat_forecast_dark_mode.svg" class="theme-img" />
+              <img src="assets/icons/redirect_light_mode.svg" alt="icon"
+                data-light="assets/icons/redirect_light_mode.svg" data-dark="assets/icons/redirect_dark_mode.svg"
+                class="theme-img" />
+            </div>
+
+            <p class="bottom_msg line-h-100">View Weekly Forecast</p>
+          </div>
+        </div>
+
+        <!-- Third Row (Records) -->
+        <div class="db_third_row">
+          <!-- Card Left -->
+          <div class="record_card temp_card">
+            <!-- Heading -->
+            <div class="record_heading_wrapper d-flex justify-content-between align-items-center gap-3"
+              style="margin-bottom: 31px">
+              <p class="record_heading fw-medium line-h-150" style="font-size: 20px">
+                Total Anomalies Recorded
+              </p>
+
+              <select class="month_dropdown form-select rounded-5 line-h-100" aria-label="Default select example">
+                <option selected>Last Month</option>
+              </select>
+            </div>
+
+            <!-- Image and description -->
+            <div class="d-flex flex-column flex-md-row justify-content-between" style="gap: 19px; margin-bottom: 30px">
+              <div class="w-100 d-flex align-items-end" style="gap: 26px">
+                <img src="assets/icons/thermometer.svg" alt="icon" width="129px" height="129px" />
+                <p class="temp_count fw-bold align-self-end">14</p>
+              </div>
+
+              <p class="w-100 record_desc font-12">
+                Lorem Ipsum is simply dummy text of the printing and
+                typesetting industry. Lorem Ipsum has been the industry's
+                standard dummy text ever since the 1500s, when an unknown
+                printer took a galley of type and scrambled it to make a type
+                specimen book.
+              </p>
+            </div>
+
+            <button class="report_new_anomally rounded-5">
+              Report New Anomaly
+              <span><img src="assets/icons/plus.svg" alt="icon" data-light="assets/icons/plus.svg"
+                  data-dark="assets/icons/plus_d.svg" class="theme-img" /></span>
+            </button>
+          </div>
+          <!-- Card Right -->
+          <div class="record_card graph_card">
+            <!-- Header -->
+            <div class="d-flex justify-content-between flex-wrap gap-3" style="margin-bottom: 40px">
+              <select class="day_dropdown fw-bold form-select rounded-5" aria-label="Default select example">
+                <option selected>Today</option>
+              </select>
+
+              <input class="date_picker rounded-3" type="date" name="" id="" aria-label="a" value="Select Date"
+                placeholder="Select Date" />
+            </div>
+
+            <!-- Graph -->
+            <div>
+              <img src="assets/icons/graph.svg" alt="graph" width="100%" data-light="assets/icons/graph.svg"
+                data-dark="assets/icons/graph_d.svg" class="theme-img" />
+            </div>
+          </div>
+        </div>
+
+        <!-- Anamaly log Table Card -->
+        <div class="anamaly_log_card p-4">
+          <!-- Header -->
+          <div class="d-flex flex-column align-items-lg-center justify-content-between flex-lg-row gap-2 mb-4">
+            <div class="log_header">
+              <p class="fw-bold font-24 line-h-150">Anomaly Log</p>
+              <p class="font-14 line-h-150" style="color: #0f172a">
+                A comprehensive log of all reported weather anomalies
+              </p>
+            </div>
+            <button class="report_new_anomally report_new_table_action rounded-5">
+              Report New Anomaly
+              <span><img src="assets/icons/plus.svg" alt="icon" /></span>
+            </button>
+          </div>
+
+          <div class="table_container">
+            <!-- Table Starts -->
+            <table class="log_table w-100">
+              <!-- Table Header -->
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Time</th>
+                  <th>Location</th>
+                  <th>Description</th>
+                  <th>Severity</th>
+                </tr>
+              </thead>
+
+              <!-- Table Body -->
+              <tbody>
+                <tr>
+                  <td>20.07.2024</td>
+                  <td>2.30 PM</td>
+                  <td>Cape Town</td>
+                  <td>
+                    Unusually strong offshore winds causing minor structural
+                    damage.
+                  </td>
+                  <td>
+                    <button class="bg-critical rounded-5 action">
+                      Critical
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>12.08.2023</td>
+                  <td>7.20 PM</td>
+                  <td>Pretoria</td>
+                  <td>Sudden hailstorm leading to temporary road closure.</td>
+                  <td>
+                    <button class="bg-moderate rounded-5 action">
+                      Moderate
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>20.07.2024</td>
+                  <td>2.30 PM</td>
+                  <td>Cape Town</td>
+                  <td>Flash flood after minimal rainfall</td>
+                  <td>
+                    <button class="bg-low rounded-5 action">Low</button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <!-- Table Ends -->
+        </div>
+      </main>
+      <!-- -------------------------- Main Content End --------------------------- -->
+    </div>
+  </div>
+
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    console.log(sidebar);
+
+    function toggleSidebar() {
+      sidebar.classList.toggle("sidebar_open");
+    }
+  </script>
+  <script src="./js/index.js"></script>
+  <script src="./js/bootstrap.js"></script>
+</body>
+
+</html>

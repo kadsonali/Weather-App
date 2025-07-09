@@ -1,0 +1,26 @@
+:root {
+  --app-bg-light: #ffffff;
+  --auth-title: #0f172a;
+  --auth-title-2: #64748b;
+  --rememberme-text: #0f172a;
+  --forgot-password: #153885;
+  --form-input: #94a3b8;
+  --text2: #64748b;
+  --primary-blue: #153885;
+  --redirect-link: #0f172a;
+  --term-condition: #64748b;
+}
+
+body.dark-theme {
+  --app-bg-light: #000000;
+  --auth-title-2: #ffffff;
+  --auth-title: #ffffff;
+  --rememberme-text: #ffffff;
+  --forgot-password: #225bd9;
+  --form-input: #ffffff;
+  --text2: #ffffff;
+  --primary-blue: #225bd9;
+  --redirect-link: #ffffff;
+  --auth-checkbox: #225bd9;
+  --term-condition: #ffffff;
+}
